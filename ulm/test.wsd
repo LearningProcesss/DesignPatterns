@@ -1,0 +1,86 @@
+@startuml
+
+header Strategy Pattern
+
+package "Client" {
+    
+    Duck <|-- "MallardDuck" : Exends (IS-A)
+    Duck <|-- "RocketDuck" : Exends (IS-A)
+    Duck <|-- "RubberDuck" : Exends (IS-A)
+
+    abstract class Duck {
+        # IFlyBehavior fly
+        # IQuackBehavior quack
+        + void setFlyBehavior(IFlyBehavior fb)
+        + void setQuackBehavior(IQuackBehavior qb)
+        + void performFly()
+        + void performQuack()
+        # abstract void swim()
+    }
+
+    class MallardDuck {
+
+        IFlyBehavior,IQuackBehavior -> concrete inside the constructor()
+
+        + void swim()
+    }
+    class RocketDuck {
+
+        IFlyBehavior,IQuackBehavior -> concrete inside the constructor()
+
+        + void swim()
+    }
+    class RubberDuck {
+
+        IFlyBehavior,IQuackBehavior -> concrete inside the constructor()
+
+        + void swim()
+    }
+
+}
+
+package "Encapsulated fly behavior" {
+
+    Duck --> "IFlyBehavior" : HAS-A
+    FlyConcreteRocket ..> "IFlyBehavior" 
+    FlyConcreteNoFly ..> "IFlyBehavior" 
+    FlyConcreteRocket ..> "FlyConcreteWings" 
+
+    interface IFlyBehavior {
+        + void fly()
+    }
+
+    class FlyConcreteRocket {
+        + void fly()
+    }
+    class FlyConcreteNoFly {
+        + void fly()
+    }
+    class FlyConcreteWings {
+        + void fly()
+    }
+}
+
+package "Encapsulated quack behavior" {
+
+    Duck --> "IQuackBehavior" : HAS-A
+    QuackConcreteMute ..> "IQuackBehavior" 
+    QuackConcreteNormal ..> "IQuackBehavior" 
+    QuackConcreteSqueak ..> "IQuackBehavior" 
+
+    interface IQuackBehavior {
+        + void quack()
+    }
+
+    class QuackConcreteMute {
+        + void fly()
+    }
+    class QuackConcreteNormal {
+        + void fly()
+    }
+    class QuackConcreteSqueak {
+        + void fly()
+    }
+}
+
+@enduml
