@@ -1,4 +1,20 @@
 # Design Pattern
+
+## Tools for your Design Toolbox
+### OO Basics
+**Abstraction**  
+**Encapsulation**  
+**Polymorphism**  
+**Inheritance**  
+### OO Principles
+**Encapsulate what varies**  
+**Favor composition over inheritance**  
+**Program to an interace not implementation**  
+### OO Patterns
+**Strategy**:
+> Define a family of algorithms, encapsulates each one, and makes them interchargeable. Strategy lets algorithm vary independently from clients that use it.
+
+# List
 [Strategy Pattern](src/strategy_pattern/README.md)
 
 # Git
