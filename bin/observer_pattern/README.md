@@ -21,7 +21,7 @@ Observer Pattern provides an object design where subjects and observer are loose
 > Strive for loosely coupled designs between objects that interact.
 
 ### Design Schema
-![](/out/ulm/observer_pattern_weather_diagram/observer_pattern_weather_diagram.png)
+![](/out/ulm/observer_pattern_class_diagram/class_diagram.png)
 
 ### Definition
 The Observer Pattern defines a one-to-many dependency between objects so that  
