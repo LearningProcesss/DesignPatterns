@@ -1,0 +1,48 @@
+@startuml
+
+title Class Diagram
+
+package "Class Diagram" {
+
+    ' legend right
+    ' |Color| Type |
+    ' |..|>| Type A class|
+    ' |<#00FF00>| Type B class|
+    ' |<#0000FF>| Type C class|
+    ' endlegend
+
+    note "Update method gets called when\nthe Subject's state changes." as NO
+
+    NO ..> IObserver
+
+    interface ISubject {
+        + void registerObserver()
+        + void removeObserver()
+        + void noditfyObserver()
+    }
+
+    interface IObserver {
+        + void update()
+    }
+
+    class ConcreteSubject {
+        + void registerObserver()
+        + void removeObserver()
+        + void noditfyObserver()
+    }
+
+    class ConcreteObserver {
+        + void update()
+    }
+    
+    ISubject --> IObserver : "HAS-A"
+
+    ConcreteSubject ..|> ISubject
+
+    ConcreteObserver ..|> IObserver
+
+
+    ConcreteObserver --> ISubject : "HAS-A"
+}
+
+@enduml

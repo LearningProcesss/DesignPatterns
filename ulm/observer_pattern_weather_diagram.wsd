@@ -1,0 +1,34 @@
+@startuml
+
+interface ISubject {
+    + void registerObserver()
+    + void destroyObserver()
+    + void notifyObservers()
+}
+
+interface IObserver {
+    + void update()
+}
+
+interface IDisplayElement {
+    + void display()
+}
+
+class WeatherData {
+    + void registerObserver()
+    + void destroyObserver()
+    + void notifyObservers()
+}
+
+class CurrentConditionsDisplay {
+    + void update()
+    + void display()
+}
+
+WeatherData ..|> ISubject
+CurrentConditionsDisplay ..|> IObserver
+CurrentConditionsDisplay ..|> IDisplayElement
+ISubject --> IObserver : "HAS-A"
+CurrentConditionsDisplay --> ISubject : "HAS-A"
+
+@enduml
