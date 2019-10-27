@@ -10,12 +10,16 @@
 **Encapsulate what varies**  
 **Favor composition over inheritance**  
 **Program to an interace not implementation**  
+**Strive for loosely coupled designs between objects that interact**  
 ### OO Patterns
 **Strategy**:
 > Define a family of algorithms, encapsulates each one, and makes them interchargeable. Strategy lets algorithm vary independently from clients that use it.
+**Observer**
+>
 
 # List
-[Strategy Pattern](src/strategy_pattern/README.md)
+[Strategy Pattern](src/strategy_pattern/README.md)  
+[Observer Pattern](src/observer_pattern/README.md)  
 
 # Git
 git init -> create local repo.

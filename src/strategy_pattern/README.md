@@ -4,7 +4,7 @@
 Duck is a superclass, it takes care of the implementation of quack() and swim() methods, because all duck types can swim and can quack and any subtype will inherit.
 The display() method is abstract since all duck types look different,
 each duck subtype is responsible for implementing it's own display behavior.
-### First problem
+### Problem
 After a while a new **feature** (change) is required: fly.
 Duck superclass, now has a new fly() method, since all duck can fly will take care of the implementation also.
 Not all duck subtype should fly, adding this method to the superclass we have a behavior that is not appropriate for some Duck subtype. Also a RubberDuck dont quack but squeak.
@@ -43,4 +43,6 @@ this is:
 Strategy Pattern define a family of algorithms, encapsulates each one, and makes them interchargeable. Strategy lets algorithm vary independently from clients that use it.
 ### Design Schema
 ![](/out/ulm/test/test.png)
+### Pattern Problem?
+**ANY** object could implement the xxxBehavior **Interface**. Say aPaperclip, a tube of toothpaste, or a mutated sea bass.  
 

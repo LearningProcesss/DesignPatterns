@@ -1,0 +1,28 @@
+@startuml
+
+title Obeserver Pattern defined
+
+package "" {
+
+    note "Object that holds the state.\nAutomatic update notifications.\nONE-TO-MANY relationship." as N
+
+    package "Observable\Subject" {
+        object Subject
+    }
+
+    package "Observers" {
+
+        object Dog
+        object Duck
+        object Cat
+        object Horse
+    }
+
+    Subject  ..> Dog  : "notify update"
+    Subject  ..> Duck  : "notify update"
+    Subject  ..> Cat  : "notify update"
+    Subject  ..> Horse  : "notify update"
+    N .. Subject
+}
+
+@enduml

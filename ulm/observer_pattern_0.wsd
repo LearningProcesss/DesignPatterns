@@ -1,0 +1,28 @@
+@startuml
+
+title Weather Monitoring application overview
+
+left to right direction
+
+skinparam packageStyle rectangle
+
+rectangle Weather-O-Rama  {
+    (Humidity sensor device) -- [Weather Station] : "send data"
+    (Temperature sensor device) -- [Weather Station] : "send data"
+    (Pressure sensor device) -- [Weather Station] : "send data"
+}
+
+rectangle "What we implement" {
+    (WeatherData) --> [Weather Station] : "pulls data"
+    [Display Device] <-- (WeatherData) : "displays"
+
+    note "Current Condition is one\n of the three different displays.\nThe user can also\nget weather stats and a forecast." as N
+
+    note "WeatherData object knows\nhow to get updated info\nfrom the Weather Station." as N2 
+
+    N2 .. (WeatherData)                                               
+
+    N .. [Display Device]
+}
+
+@enduml
