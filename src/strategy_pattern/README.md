@@ -40,7 +40,7 @@ this is:
 ### Design Principle 3
 >Favor composition over inheritance.
 ### Definition
-Strategy Pattern define a family of algorithms, encapsulates each one, and makes them interchargeable. Strategy lets algorithm vary independently from clients that use it.
+>Strategy Pattern define a family of algorithms, encapsulates each one, and makes them interchargeable. Strategy lets algorithm vary independently from clients that use it.
 ### Design Schema
 ![](/out/ulm/test/test.png)
 ### Pattern Problem?

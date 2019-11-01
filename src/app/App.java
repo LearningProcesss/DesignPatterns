@@ -1,6 +1,11 @@
 package app;
 
 import observer_pattern.design_refactoring.display.*;
+import decorator_pattern.design_refactoring.Beverage;
+import decorator_pattern.design_refactoring.beverages.DarkRoast;
+import decorator_pattern.design_refactoring.beverages.Espresso;
+import decorator_pattern.design_refactoring.condiment.Mocha;
+import decorator_pattern.design_refactoring.condiment.Whip;
 import observer_pattern.design_refactoring.WeatherData;
 import strategy_pattern.design_refactoring.behavior.concrete.FlyConcreteWings;
 import strategy_pattern.design_refactoring.duck.*;
@@ -10,7 +15,7 @@ import strategy_pattern.design_refactoring.duck.types.RocketDuck;
 public class App {
     public static void main(String[] args) throws Exception {
         System.out.println("******************* Strategy Pattern *******************");
-        
+
         Duck mallard = new MallardDuck();
         mallard.performFly();
         mallard.performQuack();
@@ -28,9 +33,11 @@ public class App {
 
         CurrentConditionsDisplay conditionsDisplay = new CurrentConditionsDisplay(weatherData);
 
-        // StatisticalConditionsDisplay statisticalDisplay = new StatisticalConditionsDisplay(weatherData);
+        // StatisticalConditionsDisplay statisticalDisplay = new
+        // StatisticalConditionsDisplay(weatherData);
 
-        // ForecastConditionsDisplay forecastDisplay = new ForecastConditionsDisplay(weatherData);
+        // ForecastConditionsDisplay forecastDisplay = new
+        // ForecastConditionsDisplay(weatherData);
 
         weatherData.setMeasurament(80, 68, 36.5f);
 
@@ -39,8 +46,24 @@ public class App {
 
         observer_pattern.design_builtin.WeatherData weatherDataBi = new observer_pattern.design_builtin.WeatherData();
 
-        observer_pattern.design_builtin.CurrentConditionsDisplay currentDispalyBi = new observer_pattern.design_builtin.CurrentConditionsDisplay(weatherDataBi);
+        observer_pattern.design_builtin.CurrentConditionsDisplay currentDispalyBi = new observer_pattern.design_builtin.CurrentConditionsDisplay(
+                weatherDataBi);
 
         weatherDataBi.setMeasurament(15.5f, 89, 65);
+        System.out.println("*********************************************************");
+        System.out.println("******************* Decorator Pattern *******************");
+
+        Beverage espresso = new Espresso();
+
+        System.out.println(String.format("%s - %s$", espresso.getDescription(), espresso.cost()));
+        
+        Beverage darkRoast = new DarkRoast();
+        darkRoast = new Mocha(darkRoast);
+        darkRoast = new Mocha(darkRoast);
+        darkRoast = new Whip(darkRoast);
+
+        System.out.println(String.format("%s - %s$", darkRoast.getDescription(), darkRoast.cost()));
+        
+        System.out.println("*********************************************************");
     }
 }

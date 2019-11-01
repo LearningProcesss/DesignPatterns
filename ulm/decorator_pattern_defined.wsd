@@ -1,0 +1,49 @@
+@startuml
+
+title Decorator Pattern defined
+
+note "Decorators have the same\nsupertype as\nthe objects they decorate." as N
+note "Can be an Interface\nor\nAbstract Class." as N1
+note "Decorators can extend\nthe state of the Component." as N2
+
+abstract class Component {
+    + void methodA()
+    + void methodB()
+}
+
+class ConcreteComponent {
+    + void methodA()
+    + void methodB()
+}
+
+class Decorator {
+    # Component component
+    + void methodA()
+    + void methodB()
+}
+
+class ConcreteDecoratorA {
+    # Component component
+    + void methodA()
+    + void methodB()
+    + void newBehavior()
+}
+
+class ConcreteDecoratorB {
+    # Component component
+    # Object newState
+    + void methodA()
+    + void methodB()
+}
+
+ConcreteComponent ..|> Component
+Decorator ..|> Component
+Decorator --> Component : "HAS-A"
+ConcreteDecoratorA ..|> Decorator
+ConcreteDecoratorB ..|> Decorator
+N --> Decorator
+N1 --> Component
+N2 --> ConcreteDecoratorB
+
+
+@enduml

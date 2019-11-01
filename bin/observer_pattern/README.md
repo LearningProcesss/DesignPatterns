@@ -24,5 +24,5 @@ Observer Pattern provides an object design where subjects and observer are loose
 ![](/out/ulm/observer_pattern_class_diagram/class_diagram.png)
 
 ### Definition
-The Observer Pattern defines a one-to-many dependency between objects so that  
+> The Observer Pattern defines a one-to-many dependency between objects so that  
 when one object changes state, al of it's dependents are notified and updated automatically.

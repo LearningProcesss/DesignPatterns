@@ -2,24 +2,30 @@
 
 ## Tools for your Design Toolbox
 ### OO Basics
-**Abstraction**  
-**Encapsulation**  
-**Polymorphism**  
-**Inheritance**  
+_**Abstraction**_  
+_**Encapsulation**_  
+_**Polymorphism**_  
+_**Inheritance**_  
 ### OO Principles
-**Encapsulate what varies**  
-**Favor composition over inheritance**  
-**Program to an interace not implementation**  
-**Strive for loosely coupled designs between objects that interact**  
+_**Encapsulate what varies.**_  
+_**Favor composition over inheritance.**_  
+_**Program to an interace not implementation.**_  
+_**Strive for loosely coupled designs between objects that interact.**_  
+_**Classes should be open for extension but closed for modification.**_  
 ### OO Patterns
-**Strategy**:
-> Define a family of algorithms, encapsulates each one, and makes them interchargeable. Strategy lets algorithm vary independently from clients that use it.
-**Observer**
->
+**Strategy**:  
+Define a family of algorithms, encapsulates each one, and makes them interchargeable. Strategy lets algorithm vary independently from clients that use it.  
+**Observer**:  
+The Observer Pattern defines a one-to-many dependency between objects so that  
+when one object changes state, al of it's dependents are notified and updated automatically.  
+**Decorator**:  
+The Decorator Pattern attaches additional responsabilities to an object dynamically.  
+Decorators provide a flexible alternative to subclassing for extending functionality.
 
 # List
 [Strategy Pattern](src/strategy_pattern/README.md)  
 [Observer Pattern](src/observer_pattern/README.md)  
+ [Decorator Pattern](src/decorator_pattern/README.md)
 
 # Git
 git init -> create local repo.
