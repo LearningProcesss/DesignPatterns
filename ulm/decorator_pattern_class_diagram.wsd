@@ -1,0 +1,68 @@
+@startuml
+
+title Decorator Pattern class diagram
+
+abstract class Beverage {
+    # String description
+    {abstract} String getDescription()
+    {abstract} double cost()
+}
+
+class HouseBlend {
+    + double cost()
+}
+
+class DarkRoast {
+    + double cost()
+}
+
+class Espresso {
+    + double cost()
+}
+
+class Decaf {
+    + double cost()
+}
+
+abstract class CondimentDecorator {
+    # Beverage beverage
+    {abstract} String getDescription()
+}
+
+class Milk {
+    + Milk(Beverage beverage)
+    + String getDescription()
+    + double cost()
+}
+
+class Soy {
+    + Soy(Beverage beverage)
+    + String getDescription()
+    + double cost()
+}
+
+class Mocha {
+    + Mocha(Beverage beverage)
+    + String getDescription()
+    + double cost()
+}
+
+class Whip {
+    + Whip(Beverage beverage)
+    + String getDescription()
+    + double cost()
+}
+
+DarkRoast --|> Beverage
+HouseBlend --|> Beverage
+Espresso --|> Beverage
+Decaf --|> Beverage
+CondimentDecorator --|> Beverage
+CondimentDecorator --> Beverage : "HAS-A"
+Milk --|> CondimentDecorator
+Soy --|> CondimentDecorator
+Mocha --|> CondimentDecorator
+Whip --|> CondimentDecorator
+
+
+@enduml
