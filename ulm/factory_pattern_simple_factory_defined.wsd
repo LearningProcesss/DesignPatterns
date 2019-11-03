@@ -1,0 +1,58 @@
+@startuml
+
+title Simple Factory defined
+
+note "PizzaStore is the client of SimplePizzaFactory" as N
+
+class PizzaStore {
+    + Pizza orderPizza(String type)
+}
+
+class SimplePizzaFactory {
+    + Pizza createPizza(String type)
+}
+
+abstract class Pizza {
+    {abstract} void prepare()
+    {abstract} void bake()
+    {abstract} void cut()
+    {abstract} void box()
+}
+
+class CheesePizza {
+    + void prepare()
+    + void bake()
+    + void cut()
+    + void box()
+}
+
+class PepperoniPizza {
+    + void prepare()
+    + void bake()
+    + void cut()
+    + void box()
+}
+
+class VeggiePizza {
+    + void prepare()
+    + void bake()
+    + void cut()
+    + void box()
+}
+
+class ClamPizza {
+    + void prepare()
+    + void bake()
+    + void cut()
+    + void box()
+}
+
+PizzaStore --> SimplePizzaFactory : "HAS-A"
+SimplePizzaFactory --> Pizza : "HAS-A"
+CheesePizza --|> Pizza
+VeggiePizza --|> Pizza
+ClamPizza --|> Pizza
+PepperoniPizza --|> Pizza
+N --> PizzaStore 
+
+@enduml

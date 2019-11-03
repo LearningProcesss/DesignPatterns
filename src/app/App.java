@@ -6,6 +6,9 @@ import decorator_pattern.design_refactoring.beverages.DarkRoast;
 import decorator_pattern.design_refactoring.beverages.Espresso;
 import decorator_pattern.design_refactoring.condiment.Mocha;
 import decorator_pattern.design_refactoring.condiment.Whip;
+import factory_pattern.factory_method.PizzaStore;
+import factory_pattern.factory_method.ConcreteStore.ChicagoPizzaStore;
+import factory_pattern.factory_method.ConcreteStore.NewYorkPizzaStore;
 import observer_pattern.design_refactoring.WeatherData;
 import strategy_pattern.design_refactoring.behavior.concrete.FlyConcreteWings;
 import strategy_pattern.design_refactoring.duck.*;
@@ -65,5 +68,16 @@ public class App {
         System.out.println(String.format("%s - %s$", darkRoast.getDescription(), darkRoast.cost()));
         
         System.out.println("*********************************************************");
+        System.out.println("******************* Factory method Pattern *******************");
+
+        System.out.println("Order at NewYorkStore");
+        PizzaStore newYorkStore = new NewYorkPizzaStore();
+        newYorkStore.orderPizza("cheese");
+        System.out.println("*********************");
+        System.out.println("Order at ChicagoStore");
+        PizzaStore chicagoStore = new ChicagoPizzaStore();
+        chicagoStore.orderPizza("broccoli");
+        System.out.println("*********************");
+
     }
 }

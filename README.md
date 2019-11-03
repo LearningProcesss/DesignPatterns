@@ -25,7 +25,8 @@ Decorators provide a flexible alternative to subclassing for extending functiona
 # List
 [Strategy Pattern](src/strategy_pattern/README.md)  
 [Observer Pattern](src/observer_pattern/README.md)  
- [Decorator Pattern](src/decorator_pattern/README.md)
+[Decorator Pattern](src/decorator_pattern/README.md)  
+[Factory Pattern](src/factory_pattern/README.md)
 
 # Git
 git init -> create local repo.
