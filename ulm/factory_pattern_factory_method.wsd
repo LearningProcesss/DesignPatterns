@@ -1,0 +1,62 @@
+@startuml
+
+title Factory Method Pattern
+
+note "All products must implement the same interface\nso that the classes that use the products\ncan refer to the interface,\nnot the concrete class." as N
+
+package "Creator Classes" {
+    abstract class PizzaStore {
+
+        + Pizza orderPizza(String type)
+
+        # {abstract} Pizza createPizza(String type)
+    }
+
+    class NewYorkPizzaStore {
+        # Pizza createPizza(String type)
+    }
+
+    class ChicagoPizzaStore {
+        # Pizza createPizza(String type)
+    }
+}
+
+package "Product Classes" {
+    abstract class Pizza {
+        # String name
+        # String dough
+        # String sauce
+        # List<String> toppings
+
+        + void prepare()
+        + void bake()
+        + void cute()
+        + void box()
+        + String getName()
+    }
+
+    class NewYorkStyleCheesePizza {
+
+    }
+
+    class ChicagoStyleBroccoliPizza {
+
+    }
+
+    class NewYorkStylePepperoiPizza {
+
+    }
+}
+
+
+NewYorkPizzaStore --|> PizzaStore
+ChicagoPizzaStore --|> PizzaStore
+NewYorkStyleCheesePizza --|> Pizza
+ChicagoStyleBroccoliPizza --|> Pizza
+NewYorkStylePepperoiPizza --|> Pizza
+N .. Pizza
+N .. ChicagoStyleBroccoliPizza
+N .. NewYorkStyleCheesePizza
+N .. NewYorkStylePepperoiPizza
+
+@enduml

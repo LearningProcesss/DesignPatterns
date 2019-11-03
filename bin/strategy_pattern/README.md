@@ -31,12 +31,14 @@ or
 **a = getAnimal(); a.makeSound();**  
 
 ### HAS-A is better than IS-A
-Each duck as Fly and Quack behavior to which it delegates flying and quacking.
-This is **Composition**. Instead of inheriting their behavior, ducks get their behavior being composed. Composition gives:
+Each duck as Fly and Quack behavior to which it delegates flying and quacking.  
+This is object **Composition**.  
+Instead of inheriting their behavior, ducks get their behavior being composed.  
+**Object Composition** gives:
 - more flexibility.
 - let you encapsulate a family of algorithms in their own set of classes.
-- let you change behavior at runtime. 
-this is:
+- let you change behavior at runtime, we can swap in and out implementations.  
+
 ### Design Principle 3
 >Favor composition over inheritance.
 ### Definition
