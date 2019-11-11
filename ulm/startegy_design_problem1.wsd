@@ -1,0 +1,27 @@
+@startuml
+
+title First change feature
+
+note "Duck superclass\ntakes care of quack() swim() and fly() implementation" as n
+
+class Duck {
+
+    + void quack()
+    + void swim()
+    + void fly()
+    # {abstract} void display()
+}
+
+class MallardDuck {
+    + void display()
+}
+
+class RedHeadDuck {
+    + void display()
+}
+
+n-->Duck
+MallardDuck--|>Duck
+RedHeadDuck--|>Duck
+
+@enduml

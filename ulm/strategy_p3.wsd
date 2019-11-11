@@ -1,0 +1,51 @@
+@startuml
+
+title Interface
+
+class Duck {
+    # {abstract} void swim()
+    # {abstract} void display()
+}
+
+class MallardDuck {
+    + void display()
+    + void fly()
+    + void quack()
+}
+
+class RedHeadDuck {
+    + void display()
+    + void fly()
+    + void quack()
+}
+
+class RubberDuck {
+    + void display()
+    + void fly()
+    + void quack()
+}
+
+class DecoyDuck {
+    + void display()
+}
+
+interface Flyable {
+    + void fly()
+}
+
+interface Quackable {
+    + void quack()
+}
+
+n-->Duck
+MallardDuck--|>Duck
+MallardDuck..|>Flyable
+MallardDuck..|>Quackable
+RedHeadDuck--|>Duck
+RedHeadDuck..|>Flyable
+RedHeadDuck..|>Quackable
+RubberDuck--|>Duck
+RubberDuck..|>Quackable
+DecoyDuck--|>Duck
+
+@enduml

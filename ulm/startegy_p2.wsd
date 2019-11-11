@@ -1,0 +1,17 @@
+@startuml
+
+title Inheritance
+
+note "Always override fly() method inside any subclass" as n
+note "Override fly() to do nothing" as n1
+
+class RubberDuck {
+    + void display()
+    + void fly()
+}
+
+
+n..>RubberDuck
+n1..>RubberDuck
+
+@enduml

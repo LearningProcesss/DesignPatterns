@@ -177,13 +177,17 @@ public class NewYorkPizzaStore extends PizzaStore {
 
     public Pizza createPizza(String type) {
 
+        Pizza pizza = null;
+
         if(type.equals("cheese")) {
-            return new NewYorkStyleCheesePizza();
+            pizza = new NewYorkStyleCheesePizza();
         } else if(type.equals("veggie")) {
-            return new NewYorkStyleVeggiePizza();
+            pizza = new NewYorkStyleVeggiePizza();
         } else if(type.equals("pepperoni")) {
-            return new NewYorkStylePepperoniPizza();
+            pizza = new NewYorkStylePepperoniPizza();
         }
+
+        return pizza;
     }
 
 }
@@ -192,28 +196,17 @@ public class ChicagoStylePizzaStore extends PizzaStore {
 
     public Pizza createPizza(String type) {
 
-        if(type.equals("cheese")) {
-            return new ChicagoStyleCheesePizza();
-        } else if(type.equals("veggie")) {
-            return new ChicagoStyleVeggiePizza();
-        } else if(type.equals("pepperoni")) {
-            return new ChicagoStylePepperoniPizza();
+        Pizza pizza = null;
+
+        if(type.equals("broccoli")) {
+            pizza = new ChicagoStyleBroccoliPizza();
+        } else if(type.equals("banana")) {
+            pizza = new ChicagoStyleBananaPizza();
+        } else if(type.equals("strange")) {
+            pizza = new ChicagoStyleStrangePizza();
         }
-    }
 
-}
-
-public class CaliforniaStylePizzaStore extends PizzaStore {
-
-    public Pizza createPizza(String type) {
-
-        if(type.equals("cheese")) {
-            return new CaliforniaStyleCheesePizza();
-        } else if(type.equals("veggie")) {
-            return new CaliforniaStyleVeggiePizza();
-        } else if(type.equals("pepperoni")) {
-            return new CaliforniaStylePepperoniPizza();
-        }
+        return pizza;
     }
 
 }
