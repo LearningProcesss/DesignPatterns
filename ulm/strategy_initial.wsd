@@ -1,0 +1,26 @@
+@startuml
+
+title Initial Design
+
+note "Duck superclass\ntakes care of quack() and swim() implementation" as n
+
+class Duck {
+
+    + void quack()
+    + void swim()
+    # {abstract} void display()
+}
+
+class MallardDuck {
+    + void display()
+}
+
+class RedHeadDuck {
+    + void display()
+}
+
+n-->Duck
+MallardDuck--|>Duck
+RedHeadDuck--|>Duck
+
+@enduml

@@ -1,0 +1,16 @@
+@startuml
+
+hide footbox
+title Foot Box removed
+
+participant "PizzaStore newYorkStore = new NewYorkPizzaStore()" as instance
+participant "newYorkStore.orderPizza(cheese)" as order
+participant "createPizza(cheese)" as create
+participant "Pizza pizza = createPizza(cheese)" as pizza
+
+instance->order: Creates instance of NewYorkPizzaStore
+order->create: The orderPizza is called\non the newYorkStore instance\n(Defined in PizzaStore)
+create->pizza: orderPizza() calls createPizza()
+pizza->order: orderPizza() gets back a pizza\nwithout knowing exactly\nwhat concrete class it is.
+
+@enduml

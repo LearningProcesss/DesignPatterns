@@ -1,0 +1,20 @@
+@startuml
+title PizzaStore very dependent
+[PizzaStore] as c1
+[NYStyleCheesePizza] as c2
+[NYStyleVeggiePizza] as c3
+[NYStylePepperoniPizza] as c4
+[ChicagoStyleVeggiePizza] as c5
+[ChicagoStyleCheesePizza] as c6
+[ChicagoStylePepperoniPizza] as c7
+
+c1 --> c2
+c1 --> c3
+c1 --> c4
+c1 --> c5
+c1 --> c6
+c1 --> c7
+
+
+
+@enduml

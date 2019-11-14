@@ -177,13 +177,17 @@ public class NewYorkPizzaStore extends PizzaStore {
 
     public Pizza createPizza(String type) {
 
+        Pizza pizza = null;
+
         if(type.equals("cheese")) {
-            return new NewYorkStyleCheesePizza();
+            pizza = new NewYorkStyleCheesePizza();
         } else if(type.equals("veggie")) {
-            return new NewYorkStyleVeggiePizza();
+            pizza = new NewYorkStyleVeggiePizza();
         } else if(type.equals("pepperoni")) {
-            return new NewYorkStylePepperoniPizza();
+            pizza = new NewYorkStylePepperoniPizza();
         }
+
+        return pizza;
     }
 
 }
@@ -192,28 +196,17 @@ public class ChicagoStylePizzaStore extends PizzaStore {
 
     public Pizza createPizza(String type) {
 
-        if(type.equals("cheese")) {
-            return new ChicagoStyleCheesePizza();
-        } else if(type.equals("veggie")) {
-            return new ChicagoStyleVeggiePizza();
-        } else if(type.equals("pepperoni")) {
-            return new ChicagoStylePepperoniPizza();
+        Pizza pizza = null;
+
+        if(type.equals("broccoli")) {
+            pizza = new ChicagoStyleBroccoliPizza();
+        } else if(type.equals("banana")) {
+            pizza = new ChicagoStyleBananaPizza();
+        } else if(type.equals("strange")) {
+            pizza = new ChicagoStyleStrangePizza();
         }
-    }
 
-}
-
-public class CaliforniaStylePizzaStore extends PizzaStore {
-
-    public Pizza createPizza(String type) {
-
-        if(type.equals("cheese")) {
-            return new CaliforniaStyleCheesePizza();
-        } else if(type.equals("veggie")) {
-            return new CaliforniaStyleVeggiePizza();
-        } else if(type.equals("pepperoni")) {
-            return new CaliforniaStylePepperoniPizza();
-        }
+        return pizza;
     }
 
 }
@@ -231,3 +224,61 @@ abstract ProductType factoryMethod(String param);
 ![](/out/ulm/factory_pattern_factory_method/Factory_Method_Pattern.png)  
 ## Definition
 The Factory Method Pattern defines an interface (abstract or simply a class) for creating objec, but lets subclasses decide which class to instantiate. Factory Method lets a class defer instantiation to subclasses.
+## Object dependencies
+When you directly instantiate object, you are depending on it's concrete class.  
+**PizzaStore before Factory Design implementation**:  
+```java
+public class PizzaStore {
+    
+    public Pizza createPizza(String style, String type) {
+
+        Pizza pizza = null;
+
+        if(style.equals("NY")) {
+            if(type.equals("cheese")) {
+                pizza = new NYStyleCheesePizza();
+            } else if(type.equals("veggie")) {
+                pizza = new NYStyleVeggiePizza();
+            } else if(type.equals("clam")) {
+                pizza = new NYStyleClamPizza();
+            } else if(type.equals("pepperoni")) {
+                pizza = new NYStylePepperoniPizza();
+            }
+        } else if(style.equals("Chicago")) {
+            if(type.equals("cheese")) {
+                // chicago pizza
+            } else if(type.equals("veggie")) {
+                // chicago pizza
+            } else if(type.equals("clam")) {
+                // chicago pizza
+            } else if(type.equals("pepperoni")) {
+                // chicago pizza
+            }
+        }
+
+        pizza.prepare();
+        pizza.bake();
+        pizza.cut();
+        pizza.box();
+
+        return pizza;
+    }
+}
+```
+- PizzaStore **depends** on all pizza objects, because it's creating them directly.
+- Because any changes to the concrete implementations of pizzas affects the PizzaStore, PizzaStore **depends on** the pizza implementation. 
+- If the implementation of these Pizza classes changes, then we may have to modify in PizzaStore.
+- Any new Pizza class create sanother dependency for PizzaStore.  
+
+![](/out/ulm/factory_inversion1/PizzaStore_very_dependent.png)
+
+## Dependency Inversion Principle
+An **high-level component** should not depend on **low-level components**, rather they should both depends on **abstraction**.  
+_**high-level component**_:  
+>is a class with behavior defined in terms of other, low-level components. Like PizzaStore, it's behavior is defined in terms of pizza.
+### Design Principle
+>Depend upon astraction. Do note depend upon concrete classes.  
+
+![](/out/ulm/factory_inversion2/factory_inversion2.png)
+
+Inversion Principle applied using Factory Pattern, invert the dependencies, low-level components now depends on higher level abstraction and high-level component is also tied to the same abstraction.  
