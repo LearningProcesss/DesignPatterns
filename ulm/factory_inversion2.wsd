@@ -1,0 +1,21 @@
+@startuml
+title PizzaStore Inversion Principle (factory) applied
+[PizzaStore] as c1
+[Pizza] as c8
+[NYStyleCheesePizza] as c2
+[NYStyleVeggiePizza] as c3
+[NYStylePepperoniPizza] as c4
+[ChicagoStyleVeggiePizza] as c5
+[ChicagoStyleCheesePizza] as c6
+[ChicagoStylePepperoniPizza] as c7
+
+c1 -down-->c8
+c2 -up-->c8
+c3 -up-->c8
+c4 -up-->c8
+c5 -up-->c8
+c6 -up-->c8
+c7 -up-->c8
+
+
+@enduml
