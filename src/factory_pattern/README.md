@@ -223,7 +223,7 @@ public class ChicagoStylePizzaStore extends PizzaStore {
 
 ```
 
-## Factory method
+## Factory Method Pattern
 
 A factory method handles object creation and _**encapsulates**_ it in a subclass.  
 This _**decouples**_ the **client** code in the superclass from the object creation code in the subclass, because isolates the client (the code in the superclass) from knowing what kind of concrete **Product** is actually created.  
@@ -237,13 +237,14 @@ abstract ProductType factoryMethod(String param);
 
 ![""](/out/ulm/factory_pattern_factory_method/Factory_Method_Pattern.png)  
 
-## Definition
+## Factory Method Pattern definition
 
-The Factory Method Pattern defines an interface (abstract or simply a class) for creating objec, but lets subclasses decide which class to instantiate. Factory Method lets a class defer instantiation to subclasses.
+>The Factory Method Pattern defines an interface (abstract or simply a class) for creating objec, but lets subclasses decide which class to instantiate. Factory Method lets a class defer instantiation to subclasses.
 
 ## Object dependencies
 
-When you directly instantiate object, you are depending on it's concrete class.  
+When you directly instantiate object, you are depending on it's concrete class.
+
 **PizzaStore before Factory Design implementation**:  
 
 ```java
@@ -386,7 +387,11 @@ public abstract class Pizza {
 
     public abstract void prepare();
 }
+```
 
+## Reworking Pizza concrete
+
+```java
 public class CheesePizza extends Pizza {
 
     private IPizzaIngredientFactory ingredientFactory;
@@ -406,6 +411,11 @@ public class CheesePizza extends Pizza {
     }
 
 }
+```
+
+## Reworking PizzaStore
+
+```java
 
 public class NewYorkPizzaStore extends PizzaStore {
 
@@ -431,3 +441,6 @@ public class NewYorkPizzaStore extends PizzaStore {
 }
 ```
 
+## Abstract Factory Pattern definition
+
+>Provides an interface for creating families of related or dependent objects without specifying ther concrete classes.
