@@ -1,0 +1,53 @@
+@startuml
+
+title Abstract Fattory Pattern defined
+
+interface AbstractFactory {
+    + void createProductA()
+    + void createProductB()
+}
+
+class ConcreteFactoryX {
+    + void createProductA()
+    + void createProductB()
+}
+
+class ConcreteFactoryY {
+    + void createProductA()
+    + void createProductB()
+}
+
+interface AbstractProductA {
+
+}
+
+class ConcreteProductA {
+
+}
+
+class ConcreteProductA2 {
+
+}
+
+interface AbstractProductB {
+    
+}
+
+class ConcreteProductB {
+    
+}
+
+class ConcreteProductB2 {
+    
+}
+
+ConcreteFactoryX -up..|>AbstractFactory
+ConcreteFactoryY -up..|>AbstractFactory
+ConcreteProductA -up..|>AbstractProductA
+ConcreteProductA2 -up..|>AbstractProductA
+ConcreteProductB -up..|>AbstractProductB
+ConcreteProductB2 -up..|>AbstractProductB
+ConcreteFactoryY -right-->ConcreteProductA
+ConcreteFactoryY -right-->ConcreteProductA2
+
+@enduml
