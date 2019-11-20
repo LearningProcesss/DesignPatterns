@@ -37,12 +37,16 @@ Decorators provide a flexible alternative to subclassing for extending functiona
 **Abstract Factory**:
 >Provides an interface for creating families of related or dependent objects without specifying ther concrete classes.
 
+**Singleton**:
+>Ensures a class has only one instance and provides a global point of access to it.
+
 # List
 
 [Strategy Pattern](src/strategy_pattern/README.md)  
 [Observer Pattern](src/observer_pattern/README.md)  
 [Decorator Pattern](src/decorator_pattern/README.md)  
-[Factory Pattern](src/factory_pattern/README.md)
+[Factory Pattern](src/factory_pattern/README.md)  
+[Singleton Pattern](src/singleton_pattern/README.md)
 
 # Git
 

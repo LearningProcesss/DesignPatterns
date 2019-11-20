@@ -1,6 +1,7 @@
 package app;
 
 import observer_pattern.design_refactoring.display.*;
+import singleton_pattern.SingletonDoubleCheckedLocking;
 import decorator_pattern.design_refactoring.Beverage;
 import decorator_pattern.design_refactoring.beverages.DarkRoast;
 import decorator_pattern.design_refactoring.beverages.Espresso;
@@ -59,14 +60,14 @@ public class App {
         Beverage espresso = new Espresso();
 
         System.out.println(String.format("%s - %s$", espresso.getDescription(), espresso.cost()));
-        
+
         Beverage darkRoast = new DarkRoast();
         darkRoast = new Mocha(darkRoast);
         darkRoast = new Mocha(darkRoast);
         darkRoast = new Whip(darkRoast);
 
         System.out.println(String.format("%s - %s$", darkRoast.getDescription(), darkRoast.cost()));
-        
+
         System.out.println("*********************************************************");
         System.out.println("******************* Factory method Pattern *******************");
 
@@ -78,6 +79,9 @@ public class App {
         PizzaStore chicagoStore = new ChicagoPizzaStore();
         chicagoStore.orderPizza("broccoli");
         System.out.println("*********************");
+
+
+        SingletonDoubleCheckedLocking s = SingletonDoubleCheckedLocking.getInstance();
 
     }
 }
