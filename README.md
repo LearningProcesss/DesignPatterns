@@ -40,6 +40,9 @@ Decorators provide a flexible alternative to subclassing for extending functiona
 **Singleton**:
 >Ensures a class has only one instance and provides a global point of access to it.
 
+**Command**:
+>
+
 # List
 
 [Strategy Pattern](src/strategy_pattern/README.md)  
@@ -47,6 +50,7 @@ Decorators provide a flexible alternative to subclassing for extending functiona
 [Decorator Pattern](src/decorator_pattern/README.md)  
 [Factory Pattern](src/factory_pattern/README.md)  
 [Singleton Pattern](src/singleton_pattern/README.md)
+[Command Pattern](src/command_pattern/README.md)
 
 # Git
 

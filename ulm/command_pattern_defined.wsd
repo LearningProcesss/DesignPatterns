@@ -1,0 +1,53 @@
+@startuml
+
+title Command Pattern defined
+
+object Client
+
+class Invoker {
+    - ICommand commands
+    + void setCommand()
+}
+
+interface ICommand {
+    + void execute()
+    + void undo()
+}
+
+class ConcreteCommand {
+    - Receiver receiver
+    + void execute()
+    + void undo()
+}
+
+class Receiver {
+    + void action()
+}
+
+note "The <b>Client</b> is responsible for creating a <b>ConcreteCommand</b>\nand setting it's <b>Receiver</b>" as n0
+note "public void execute() {\n       receiver.execute();\n}" as n
+note "Defines a binding between an action and <b>Receiver</b>.\nThe <b>Invoker</b> makes a request by calling <b>execute()</b>\nand the <b>ConcreteCommand</b> carries it out by calling\none or more actions on the <b>Receiver</b>." as n1
+' note bottom of ConcreteCommand
+
+' end note
+note top of Invoker
+Holds a <b>Command</b> and ask to it
+to carry out a request by calling
+its <b>execute()</b> method
+end note
+
+note top of ICommand
+Its invoked through its execute() method,
+which ask a <b>Receiver</b> to perform an action.
+end note
+
+Invoker-right-->ICommand
+ConcreteCommand-up..|>ICommand
+ConcreteCommand-left-->Receiver
+Client-right-->Receiver
+Client-right-->ConcreteCommand
+n..>ConcreteCommand
+n1-up..>ConcreteCommand
+n0..>Client
+
+@enduml

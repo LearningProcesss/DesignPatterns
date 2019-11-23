@@ -70,6 +70,7 @@ class MuteQuack implements IQuackBehavior {
     }
 }
 ```
+
 - With this design is possible to add new **behaviors** without modifyng any of existing behavior class or touch an of Duck's classes that use this **behaviors**.  
 - Other types of objects can **resuse** fly and quack **behaviors** because these are no longer hidden away in our Duck classes.  
 
